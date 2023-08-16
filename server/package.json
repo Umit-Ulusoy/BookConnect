@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Back end of the BookConnect project",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "backend",
+    "ExpressJS",
+    "Node.js",
+    "MVC",
+    "AWS",
+    "Mongoose",
+    "MongoDB",
+    "JavaScript"
+  ],
+  "author": "Ümit Ulusoy",
+  "license": "ISC"
+}
