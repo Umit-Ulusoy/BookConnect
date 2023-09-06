@@ -4,7 +4,7 @@ import Login from "../pages/Login"
 
 test("username input should be rendered", () => {
     render(<Login />);
-    const usernameInput = screen.getByPlaceholderText("Name");
+    const usernameInput = screen.getByPlaceholderText("Username");
     expect(usernameInput).toBeInTheDocument();
 });
 
