@@ -4,8 +4,10 @@
   "description": "Back end of the BookConnect project",
   "main": "app.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "helmet": "^7.0.0",
     "mongoose": "^7.5.0"
   },
   "scripts": {
