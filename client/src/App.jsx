@@ -1,10 +1,11 @@
 import React from "react";
 import Login from "./pages/Login";
+import Timer from "./pages/Timer";
 
 function App() {
   return (
     <div>
-      <Login />
+      <Timer/>
     </div>
    
         
