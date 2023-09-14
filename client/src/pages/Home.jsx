@@ -18,6 +18,14 @@ const Home = () => {
         <hr/>
         <div>
         <main>
+           <section>
+                <ul>
+                   <li>Tümü</li>
+                   <li>İncelemeler</li> 
+                   <li>Alıntılar</li> 
+                   <li>Yeni Gönderi</li> 
+                </ul>
+           </section> 
             <Content />
             <LeadershipTable />
         </main>
