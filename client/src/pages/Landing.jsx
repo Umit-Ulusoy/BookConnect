@@ -1,7 +1,7 @@
 const LandingPage = () => {
   return (
-    <div>
-      <header>
+    <div className="w-full h-full ">
+      <header className="w-full h-(92px)">
         <h2>BookConnect</h2>
         <div>
           <button aria-label="login">Login</button>
