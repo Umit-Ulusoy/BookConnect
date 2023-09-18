@@ -2,6 +2,7 @@ import Announcement from "../components/Announcement"
 import Content from "../components/Content"
 import ContentBar from "../components/ContentBar"
 import Footer from "../components/Footer"
+import LibraryModal from "../components/LibraryModal"
 
 const Profile = () => {
   return (
@@ -13,8 +14,9 @@ const Profile = () => {
         </header>
         <hr/>
         <main>
-        <Content />
-        <ContentBar />
+            <LibraryModal />
+            <Content />
+            <ContentBar />
         </main>
         <Footer />
     </div>

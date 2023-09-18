@@ -8,11 +8,11 @@ const Home = () => {
   return (
     <div>
         <Announcement />
-        <header>
+        <header >
             <h3>BookConnect</h3>
             <div className='profile'>
                 <img />
-                <p>Profile Name</p>
+                <p  className>Profile Name</p>
             </div>
         </header>
         <hr/>

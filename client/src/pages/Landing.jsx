@@ -1,13 +1,24 @@
+import { Link } from "react-router-dom";
+import hero from "../assets/hero.png"
+
+
 const LandingPage = () => {
   return (
-    <div className="w-full h-full ">
-      <header className="w-full h-(92px)">
-        <h2>BookConnect</h2>
+    <div>
+      <header>
+        <h1>BookConnect</h1>
         <div>
-          <button aria-label="login">Login</button>
-          <button aria-label="sign up">Sign up</button>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+          <Link to="/register">
+            <button >Sign up</button>
+          </Link>
         </div>
       </header>
+      <section>
+        <img src={hero}/>
+      </section>
       <hr />
       <section>
         <p>

@@ -83,7 +83,7 @@ const Timer = () => {
     axios
       .post("/api/saveTime", { time })
       .then((response) => {
-       console.log(response.data.message);
+       citonsole.log(response.data.message);
       })
       .catch((error) => {
         console.log(error);
