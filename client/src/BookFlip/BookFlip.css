@@ -1,0 +1,33 @@
+/* Kitap dönme efekti için CSS */
+.flip-container {
+    perspective: 1000px;
+    width: 300px; /* Sayfanın genişliğini ve yüksekliğini ihtiyaca göre ayarlayın */
+    height: 500px;
+    position: relative;
+  }
+  
+  .flip-card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+    background-color: none /* Ön sayfa rengi */
+  }
+  
+  .flip-card-back {
+    background-color: none; /* Arka sayfa rengi */
+    transform: rotateY(180deg);
+  }
+  
