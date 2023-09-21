@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-const testDatabase = require('../testDatabase');
+const testSetup = require('../testSetup');
 const User = require('../../models/User');
+
+testSetup.setUp();
 
 // Mock user data
 const mockUsers = [
@@ -24,14 +26,6 @@ const mockUsers = [
   }
 ];
 
-// Connect to the database before running tests
-beforeAll(async () => testDatabase.connectToDatabase());
-
-// Clear the database after each test
-afterEach(async () => testDatabase.clearDatabase());
-
-// Close the database connection after all tests
-afterAll(async () => testDatabase.closeDatabase());
 
 describe('User Model Tests', () => {
     it('Should retrieve all users from the database', async () => {
