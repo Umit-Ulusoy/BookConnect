@@ -1,9 +1,7 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
+import { AiOutlineLike, AiOutlineShareAlt, AiOutlineComment } from 'react-icons/ai';
 import img1 from "../assets/img1.jpg";
 import img2 from "../assets/img2.jpg";
-
-import {AiOutlineLike, AiOutlineShareAlt, AiOutlineComment } from "react-icons/ai"
-
 
 const Content = () => {
   const [userPosts, setUserPosts] = useState([
@@ -13,6 +11,7 @@ const Content = () => {
       content: img1,
       likes: 15,
       shares: 7,
+      comments: [],
     },
     {
       id: 2,
@@ -20,6 +19,7 @@ const Content = () => {
       content: img2,
       likes: 8,
       shares: 3,
+      comments: [],
     },
     {
       id: 3,
@@ -27,6 +27,7 @@ const Content = () => {
       content: img1,
       likes: 8,
       shares: 3,
+      comments: [],
     },
     {
       id: 4,
@@ -34,8 +35,12 @@ const Content = () => {
       content: img2,
       likes: 8,
       shares: 3,
+      comments: [],
     },
   ]);
+
+  const [commentInputVisible, setCommentInputVisible] = useState(false);
+  const [commentText, setCommentText] = useState('');
 
   const handleLike = (postId) => {
     const updatedPosts = userPosts.map((post) => {
@@ -47,42 +52,81 @@ const Content = () => {
     setUserPosts(updatedPosts);
   };
 
+  const handleComment = (postId) => {
+    if (commentText.trim() === '') {
+      return;
+    }
+
+    const updatedPosts = userPosts.map((post) => {
+      if (post.id === postId) {
+        const updatedPost = { ...post, comments: [...post.comments, commentText] };
+        console.log('Yeni Yorum:', commentText);
+        return updatedPost;
+      }
+      return post;
+    });
+    setUserPosts(updatedPosts);
+    setCommentText('');
+    setCommentInputVisible(false);
+  };
+
   return (
-    <div className="w-full bg-[#D0E8ED] rounded-lg h-auto p-4 ">
+    <div className="w-full bg-gray-200 rounded-lg p-4 ">
       {userPosts.map((post) => (
         <div
           key={post.id}
-          className="bg-white p-4 mb-4 h-auto max-h-[600px] rounded-lg shadow-md relative"
+          className="bg-white p-4 mb-4 rounded-lg shadow-md relative"
         >
-          <section className="mb-2 border-b border-solid border-[#155B6A] h-10">
-            <span className="font-semibold block" style={{ lineHeight: '2.5rem' }}>
+          <div className="mb-2 border-b border-solid border-gray-400">
+            <span className="font-semibold block text-lg">
               {post.username}
             </span>
-          </section>
-          <section className="mb-4 h-auto max-h-[350px] overflow-hidden">
+          </div>
+          <div className="mb-4">
             <img
               src={post.content}
               alt="Gönderi Resmi"
-              className="h-auto w-full"
+              className="w-full"
             />
+          </div>
+          <section className="flex justify-between py-4 items-center">
+            <button onClick={() => handleLike(post.id)}>
+              <AiOutlineLike /> {post.likes}
+            </button>
+            <button>
+              <AiOutlineShareAlt/>
+            </button> 
+
+            <button onClick={() => setCommentInputVisible(true)}>
+              <AiOutlineComment />
+            </button>
           </section>
-          <section className="flex h-12 justify-between px-5 items-center gap-10 border-t border-solid border-[#155B6A]  bottom-4 left-4 right-4">
+          {commentInputVisible && (
             <div>
-              <button className="text-gray-500" onClick={() => handleLike(post.id)}>
-                <AiOutlineLike /> {post.likes}
-              </button>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleComment(post.id);
+                }}
+              >
+                <label>
+                  <input
+                    className="w-full py-2"
+                    type="text"
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    placeholder="Yorumunuzu yazın..."
+                  />
+                </label>
+                <button type="submit">Yorum Yap</button>
+              </form>
             </div>
-            <div>
-              <button className="text-gray-700">
-                <AiOutlineShareAlt />
-              </button>
-            </div>
-            <div>
-              <button className="text-gray-700">
-                <AiOutlineComment/>
-              </button>
-            </div>
-          </section>
+          )}
+          <div className="mt-2">
+            {post.comments.map((comment, index) => (
+              <div key={index}>{comment}</div>
+            ))}
+          </div>
         </div>
       ))}
     </div>
@@ -90,5 +134,6 @@ const Content = () => {
 };
 
 export default Content;
+
 
 
