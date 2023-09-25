@@ -27,3 +27,21 @@ import img1 from "../src/assets/login.png"
     },
 
 ]
+
+export const leaderUsers = [
+   
+        {
+            id:1,
+            username:"user1"
+        },
+        {
+            id:2,
+            username:"user2"
+        },
+        {
+            id:3,
+            username:"user3"
+        }
+    
+
+    ]
